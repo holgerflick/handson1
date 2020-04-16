@@ -1,0 +1,120 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{69836667-B249-41C6-BFAD-E9DDF889862D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="converter\CSVConvert.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="server\LLCServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="server-auth\LLCServerAuth.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="web-entity-lookup\EntityLookupEx.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="vcl-reporting\VCLReporting.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="web-usermanager\UserManager.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="WebUserManagerTemplate\UserManagerTemplate.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="fnc-reporting\FNCFMXReporting.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CSVConvert">
+        <MSBuild Projects="converter\CSVConvert.dproj"/>
+    </Target>
+    <Target Name="CSVConvert:Clean">
+        <MSBuild Projects="converter\CSVConvert.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CSVConvert:Make">
+        <MSBuild Projects="converter\CSVConvert.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="LLCServer">
+        <MSBuild Projects="server\LLCServer.dproj"/>
+    </Target>
+    <Target Name="LLCServer:Clean">
+        <MSBuild Projects="server\LLCServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LLCServer:Make">
+        <MSBuild Projects="server\LLCServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="LLCServerAuth">
+        <MSBuild Projects="server-auth\LLCServerAuth.dproj"/>
+    </Target>
+    <Target Name="LLCServerAuth:Clean">
+        <MSBuild Projects="server-auth\LLCServerAuth.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LLCServerAuth:Make">
+        <MSBuild Projects="server-auth\LLCServerAuth.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="EntityLookupEx">
+        <MSBuild Projects="web-entity-lookup\EntityLookupEx.dproj"/>
+    </Target>
+    <Target Name="EntityLookupEx:Clean">
+        <MSBuild Projects="web-entity-lookup\EntityLookupEx.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="EntityLookupEx:Make">
+        <MSBuild Projects="web-entity-lookup\EntityLookupEx.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VCLReporting">
+        <MSBuild Projects="vcl-reporting\VCLReporting.dproj"/>
+    </Target>
+    <Target Name="VCLReporting:Clean">
+        <MSBuild Projects="vcl-reporting\VCLReporting.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLReporting:Make">
+        <MSBuild Projects="vcl-reporting\VCLReporting.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UserManager">
+        <MSBuild Projects="web-usermanager\UserManager.dproj"/>
+    </Target>
+    <Target Name="UserManager:Clean">
+        <MSBuild Projects="web-usermanager\UserManager.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UserManager:Make">
+        <MSBuild Projects="web-usermanager\UserManager.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UserManagerTemplate">
+        <MSBuild Projects="WebUserManagerTemplate\UserManagerTemplate.dproj"/>
+    </Target>
+    <Target Name="UserManagerTemplate:Clean">
+        <MSBuild Projects="WebUserManagerTemplate\UserManagerTemplate.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UserManagerTemplate:Make">
+        <MSBuild Projects="WebUserManagerTemplate\UserManagerTemplate.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FNCFMXReporting">
+        <MSBuild Projects="fnc-reporting\FNCFMXReporting.dproj"/>
+    </Target>
+    <Target Name="FNCFMXReporting:Clean">
+        <MSBuild Projects="fnc-reporting\FNCFMXReporting.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FNCFMXReporting:Make">
+        <MSBuild Projects="fnc-reporting\FNCFMXReporting.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CSVConvert;LLCServer;LLCServerAuth;EntityLookupEx;VCLReporting;UserManager;UserManagerTemplate;FNCFMXReporting"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CSVConvert:Clean;LLCServer:Clean;LLCServerAuth:Clean;EntityLookupEx:Clean;VCLReporting:Clean;UserManager:Clean;UserManagerTemplate:Clean;FNCFMXReporting:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CSVConvert:Make;LLCServer:Make;LLCServerAuth:Make;EntityLookupEx:Make;VCLReporting:Make;UserManager:Make;UserManagerTemplate:Make;FNCFMXReporting:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

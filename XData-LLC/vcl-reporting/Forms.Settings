@@ -1,0 +1,31 @@
+unit Forms;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, AdvEdit, System.ImageList, Vcl.ImgList,
+  Vcl.VirtualImageList, Vcl.BaseImageCollection, AdvTypes;
+
+type
+  TForm2 = class(TForm)
+    FrmSettings: TAdvEdit;
+    txtPassword: TAdvEdit;
+    btnCancel: TButton;
+    btnOK: TButton;
+    AdvSVGImageCollection1: TAdvSVGImageCollection;
+    VirtualImageList1: TVirtualImageList;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+end.

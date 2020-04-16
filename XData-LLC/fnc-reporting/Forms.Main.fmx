@@ -1,0 +1,48 @@
+object FrmMain: TFrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object txtId: TTMSFNCEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    TextSettings.Font.Family = 'Droid Sans Mono'
+    Position.X = 8.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 201.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Style, FontColor]
+    Text = 'L13000088055'
+    EditType = etValidChars
+    Lookup.Separator = ';'
+    ValidChars = 'L0123456789'
+    LengthLimit = 12
+  end
+  object btnLookup: TTMSFNCButton
+    Font.Name = 'Segoe UI'
+    Size.Width = 100.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    Position.X = 216.000000000000000000
+    Position.Y = 16.000000000000000000
+    TabOrder = 2
+    Text = '<FONT face="Droid Sans Mono" size="12">Lookup</FONT>'
+    OnClick = btnLookupClick
+  end
+  object Browser: TTMSFNCWebBrowser
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Position.X = 8.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 625.000000000000000000
+    Size.Height = 417.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    URL = 'https://tmssoftware.com'
+  end
+end
