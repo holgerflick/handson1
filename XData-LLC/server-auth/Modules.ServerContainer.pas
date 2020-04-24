@@ -11,7 +11,8 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MySQL,
   FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client, FireDAC.Moni.Base,
-  FireDAC.Moni.RemoteClient, Sparkle.Comp.BasicAuthMiddleware, Sparkle.Comp.CorsMiddleware;
+  FireDAC.Moni.RemoteClient, Sparkle.Comp.BasicAuthMiddleware, Sparkle.Comp.CorsMiddleware,
+  Sparkle.Comp.GenericMiddleware;
 
 type
   TServerContainer = class(TDataModule)
@@ -20,13 +21,14 @@ type
     Pool: TXDataConnectionPool;
     AureliusConnection: TAureliusConnection;
     Connection: TFDConnection;
-    BasicAuth: TSparkleBasicAuthMiddleware;
-    XDataServerCORS: TSparkleCorsMiddleware;
+    TokenAuth: TSparkleGenericMiddleware;
 
-    procedure BasicAuthAuthenticate(Sender: TObject; const UserName, Password: string;
-      var User: IUserIdentity);
+    procedure XDataServerEntityList(Sender: TObject; Args: TEntityListArgs);
+    procedure XDataServerEntityGet(Sender: TObject; Args: TEntityGetArgs);
+    procedure TokenAuthRequest(Sender: TObject; Context: THttpServerContext; Next: THttpServerProc);
   private
     procedure RegisterFunctions;
+
   end;
 
 var
@@ -36,7 +38,12 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses Modules.AuthController;
+uses
+  System.Generics.Collections,
+  Sparkle.Utils,
+  Modules.AuthController,
+  XData.Sys.Exceptions,
+  Controller.ServiceHelper;
 
 {$R *.dfm}
 
@@ -49,20 +56,94 @@ begin
 end;
 
 
-procedure TServerContainer.BasicAuthAuthenticate(Sender: TObject; const UserName,
-  Password: string; var User: IUserIdentity);
-var
-  LValid: Boolean;
-  LToken: String;
-begin
-  LValid := AuthController.IsCorrectLogin(UserName,Password, LToken);
+procedure TServerContainer.TokenAuthRequest(Sender: TObject; Context: THttpServerContext;
+  Next: THttpServerProc);
 
-  User := nil;
-  if LValid then
+var
+  LQuery: String;
+  LUser: TUserIdentity;
+  LToken: String;
+  LUserId: Integer;
+  LParams: TArray<TPair<string,string>>;
+  LPair: TPair<string,string>;
+  LIsLogin: Boolean;
+begin
+  // is this a login service request?
+  LIsLogin := Context.Request.Uri.Path.ToLower.Contains('/loginservice/');
+
+  // login service does not need to authenticate
+  if not LIsLogin then
   begin
-    User := TUserIdentity.Create;
-    User.Claims.AddOrSet('Token', LToken);
+    LToken := '';
+
+    // try getting token from header
+    if Context.Request.Headers.Exists('Authorized') then
+    begin
+      LToken := Context.Request.Headers.Get('Authorized');
+    end;
+
+    // if token was not in header, try URL
+    if LToken = '' then
+    begin
+      // get query string from URL
+      LQuery := Context.Request.Uri.Query;
+
+      // create array with pairs
+      LParams := TSparkleUtils.GetQueryParams(LQuery);
+
+      // look for parameter value for token
+      for LPair in LParams do
+      begin
+        if LPair.Key.ToLower = 't' then
+        begin
+          LToken := LPair.Value;
+        end;
+      end;
+    end;
+
+    // if token has been found, validate
+    if LToken.Length > 0 then
+    begin
+      LUserId := AuthController.ValidateToken(LToken);
+
+      // only if token is valid
+      if LUserId > -1 then
+      begin
+        // add user token for later processing
+        LUser := TUserIdentity.Create;
+        LUser.Claims.AddOrSet('Token', LToken);
+
+        Context.Request.User := LUser;
+        Next( Context );
+      end
+      else
+      begin
+        Context.Response.StatusCode := 401;
+      end;
+    end
+    else
+    begin
+      Context.Response.StatusCode := 401;
+    end;
+  end
+  else
+  begin
+    // no check for login service usage...
+    Next( Context );
   end;
 end;
+
+procedure TServerContainer.XDataServerEntityGet(Sender: TObject; Args: TEntityGetArgs);
+begin
+  TServiceHelper.CheckAuthenticated;
+end;
+
+procedure TServerContainer.XDataServerEntityList(Sender: TObject; Args: TEntityListArgs);
+begin
+  TServiceHelper.CheckAuthenticated;
+end;
+
+
+
 
 end.

@@ -18,13 +18,16 @@
         <Projects Include="vcl-reporting\VCLReporting.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="fnc-reporting\FNCFMXReporting.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="web-usermanager\UserManager.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="WebUserManagerTemplate\UserManagerTemplate.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="fnc-reporting\FNCFMXReporting.dproj">
+        <Projects Include="vcl-async-lookup\VCLAsyncLookup.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -80,6 +83,15 @@
     <Target Name="VCLReporting:Make">
         <MSBuild Projects="vcl-reporting\VCLReporting.dproj" Targets="Make"/>
     </Target>
+    <Target Name="FNCFMXReporting">
+        <MSBuild Projects="fnc-reporting\FNCFMXReporting.dproj"/>
+    </Target>
+    <Target Name="FNCFMXReporting:Clean">
+        <MSBuild Projects="fnc-reporting\FNCFMXReporting.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FNCFMXReporting:Make">
+        <MSBuild Projects="fnc-reporting\FNCFMXReporting.dproj" Targets="Make"/>
+    </Target>
     <Target Name="UserManager">
         <MSBuild Projects="web-usermanager\UserManager.dproj"/>
     </Target>
@@ -98,23 +110,23 @@
     <Target Name="UserManagerTemplate:Make">
         <MSBuild Projects="WebUserManagerTemplate\UserManagerTemplate.dproj" Targets="Make"/>
     </Target>
-    <Target Name="FNCFMXReporting">
-        <MSBuild Projects="fnc-reporting\FNCFMXReporting.dproj"/>
+    <Target Name="VCLAsyncLookup">
+        <MSBuild Projects="vcl-async-lookup\VCLAsyncLookup.dproj"/>
     </Target>
-    <Target Name="FNCFMXReporting:Clean">
-        <MSBuild Projects="fnc-reporting\FNCFMXReporting.dproj" Targets="Clean"/>
+    <Target Name="VCLAsyncLookup:Clean">
+        <MSBuild Projects="vcl-async-lookup\VCLAsyncLookup.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="FNCFMXReporting:Make">
-        <MSBuild Projects="fnc-reporting\FNCFMXReporting.dproj" Targets="Make"/>
+    <Target Name="VCLAsyncLookup:Make">
+        <MSBuild Projects="vcl-async-lookup\VCLAsyncLookup.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="CSVConvert;LLCServer;LLCServerAuth;EntityLookupEx;VCLReporting;UserManager;UserManagerTemplate;FNCFMXReporting"/>
+        <CallTarget Targets="CSVConvert;LLCServer;LLCServerAuth;EntityLookupEx;VCLReporting;FNCFMXReporting;UserManager;UserManagerTemplate;VCLAsyncLookup"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CSVConvert:Clean;LLCServer:Clean;LLCServerAuth:Clean;EntityLookupEx:Clean;VCLReporting:Clean;UserManager:Clean;UserManagerTemplate:Clean;FNCFMXReporting:Clean"/>
+        <CallTarget Targets="CSVConvert:Clean;LLCServer:Clean;LLCServerAuth:Clean;EntityLookupEx:Clean;VCLReporting:Clean;FNCFMXReporting:Clean;UserManager:Clean;UserManagerTemplate:Clean;VCLAsyncLookup:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CSVConvert:Make;LLCServer:Make;LLCServerAuth:Make;EntityLookupEx:Make;VCLReporting:Make;UserManager:Make;UserManagerTemplate:Make;FNCFMXReporting:Make"/>
+        <CallTarget Targets="CSVConvert:Make;LLCServer:Make;LLCServerAuth:Make;EntityLookupEx:Make;VCLReporting:Make;FNCFMXReporting:Make;UserManager:Make;UserManagerTemplate:Make;VCLAsyncLookup:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

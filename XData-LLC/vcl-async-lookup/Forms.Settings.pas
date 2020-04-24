@@ -6,14 +6,12 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, AdvEdit, System.ImageList, Vcl.ImgList,
   Vcl.VirtualImageList, Vcl.BaseImageCollection, AdvTypes, CryptBase, AESObj, AdvGlowButton,
-  AdvStyleIF, AdvAppStyler, AdvOfficeButtons, AdvCombo;
+  AdvStyleIF, AdvAppStyler, AdvOfficeButtons, AdvCombo, Modules.Resources;
 
 type
   TFrmSettings = class(TForm)
     txtLogin: TAdvEdit;
     txtPassword: TAdvEdit;
-    SVGCollection: TAdvSVGImageCollection;
-    VImgList: TVirtualImageList;
     AES: TAESEncryption;
     btnCancel: TAdvGlowButton;
     btnOK: TAdvGlowButton;

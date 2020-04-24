@@ -8,7 +8,7 @@ type
     Name: String;
     Id: String;
 
-    constructor Create( AId, AName : String );
+    constructor Create( const AId, AName : String );
 
   end;
 
@@ -24,7 +24,7 @@ implementation
 
 { TBusinessEntityItem }
 
-constructor TBusinessEntityItem.Create(AId, AName: String);
+constructor TBusinessEntityItem.Create(const AId, AName: String);
 begin
   Id := AId;
   Name := AName;

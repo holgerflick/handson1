@@ -1,38 +1,32 @@
-object FrmSettings: TFrmSettings
+object Form2: TForm2
   Left = 0
   Top = 0
   BorderStyle = bsSizeToolWin
   Caption = 'Application Settings'
-  ClientHeight = 211
-  ClientWidth = 416
+  ClientHeight = 149
+  ClientWidth = 433
   Color = clBtnFace
-  Constraints.MinHeight = 250
-  Constraints.MinWidth = 400
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -16
   Font.Name = 'Droid Sans Mono'
   Font.Style = []
   OldCreateOrder = False
-  Position = poMainFormCenter
-  OnCreate = FormCreate
-  OnShow = FormShow
   DesignSize = (
-    416
-    211)
+    433
+    149)
   PixelsPerInch = 96
   TextHeight = 19
-  object txtLogin: TAdvEdit
+  object FrmSettings: TAdvEdit
     Left = 104
     Top = 16
-    Width = 304
+    Width = 321
     Height = 27
-    DefaultHandling = False
     EmptyTextStyle = []
     FlatLineColor = 11250603
     FocusColor = clWhite
     FocusFontColor = 3881787
-    LabelCaption = '&Login'
+    LabelCaption = 'Login'
     LabelPosition = lpLeftCenter
     LabelFont.Charset = DEFAULT_CHARSET
     LabelFont.Color = 4474440
@@ -56,19 +50,18 @@ object FrmSettings: TFrmSettings
     TabOrder = 0
     Text = ''
     Visible = True
-    Version = '3.5.3.5'
+    Version = '3.5.3.3'
   end
   object txtPassword: TAdvEdit
     Left = 104
     Top = 56
-    Width = 304
+    Width = 321
     Height = 27
-    DefaultHandling = False
     EmptyTextStyle = []
     FlatLineColor = 11250603
     FocusColor = clWhite
     FocusFontColor = 3881787
-    LabelCaption = '&Password'
+    LabelCaption = 'Password'
     LabelPosition = lpLeftCenter
     LabelFont.Charset = DEFAULT_CHARSET
     LabelFont.Color = 4474440
@@ -89,143 +82,34 @@ object FrmSettings: TFrmSettings
     Font.Name = 'Droid Sans Mono'
     Font.Style = []
     ParentFont = False
-    PasswordChar = #183
     TabOrder = 1
     Text = ''
     Visible = True
-    Version = '3.5.3.5'
+    Version = '3.5.3.3'
   end
-  object btnCancel: TAdvGlowButton
-    Left = 308
-    Top = 170
-    Width = 100
-    Height = 33
+  object btnCancel: TButton
+    Left = 302
+    Top = 104
+    Width = 123
+    Height = 37
     Anchors = [akRight, akBottom]
-    Cancel = True
     Caption = 'Cancel'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = 4474440
-    Font.Height = -16
-    Font.Name = 'Droid Sans Mono'
-    Font.Style = []
     ImageIndex = 0
-    Images = VImgList
-    ModalResult = 2
-    NotesFont.Charset = DEFAULT_CHARSET
-    NotesFont.Color = clWindowText
-    NotesFont.Height = -11
-    NotesFont.Name = 'Tahoma'
-    NotesFont.Style = []
-    ParentFont = False
-    Rounded = True
+    Images = VirtualImageList1
     TabOrder = 2
-    Appearance.BorderColor = 11382963
-    Appearance.BorderColorHot = 11565130
-    Appearance.BorderColorCheckedHot = 11565130
-    Appearance.BorderColorDown = 11565130
-    Appearance.BorderColorChecked = 13744549
-    Appearance.BorderColorDisabled = 13948116
-    Appearance.ColorChecked = 13744549
-    Appearance.ColorCheckedTo = 13744549
-    Appearance.ColorDisabled = clWhite
-    Appearance.ColorDisabledTo = clNone
-    Appearance.ColorDown = 11565130
-    Appearance.ColorDownTo = 11565130
-    Appearance.ColorHot = 16444643
-    Appearance.ColorHotTo = 16444643
-    Appearance.ColorMirror = clWhite
-    Appearance.ColorMirrorTo = clWhite
-    Appearance.ColorMirrorHot = 16444643
-    Appearance.ColorMirrorHotTo = 16444643
-    Appearance.ColorMirrorDown = 11565130
-    Appearance.ColorMirrorDownTo = 11565130
-    Appearance.ColorMirrorChecked = 13744549
-    Appearance.ColorMirrorCheckedTo = 13744549
-    Appearance.ColorMirrorDisabled = clWhite
-    Appearance.ColorMirrorDisabledTo = clNone
-    Appearance.GradientHot = ggVertical
-    Appearance.GradientMirrorHot = ggVertical
-    Appearance.GradientDown = ggVertical
-    Appearance.GradientMirrorDown = ggVertical
-    Appearance.GradientChecked = ggVertical
-    Appearance.TextColorChecked = 3750459
-    Appearance.TextColorDown = 2303013
-    Appearance.TextColorHot = 2303013
-    Appearance.TextColorDisabled = 13948116
   end
-  object btnOK: TAdvGlowButton
-    Left = 196
-    Top = 170
-    Width = 100
-    Height = 33
+  object btnOK: TButton
+    Left = 158
+    Top = 104
+    Width = 123
+    Height = 37
     Anchors = [akRight, akBottom]
     Caption = 'OK'
-    Default = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = 4474440
-    Font.Height = -16
-    Font.Name = 'Droid Sans Mono'
-    Font.Style = []
     ImageIndex = 1
-    Images = VImgList
-    ModalResult = 1
-    NotesFont.Charset = DEFAULT_CHARSET
-    NotesFont.Color = clWindowText
-    NotesFont.Height = -11
-    NotesFont.Name = 'Tahoma'
-    NotesFont.Style = []
-    ParentFont = False
-    Rounded = True
+    Images = VirtualImageList1
     TabOrder = 3
-    OnClick = btnOKClick
-    Appearance.BorderColor = 11382963
-    Appearance.BorderColorHot = 11565130
-    Appearance.BorderColorCheckedHot = 11565130
-    Appearance.BorderColorDown = 11565130
-    Appearance.BorderColorChecked = 13744549
-    Appearance.BorderColorDisabled = 13948116
-    Appearance.ColorChecked = 13744549
-    Appearance.ColorCheckedTo = 13744549
-    Appearance.ColorDisabled = clWhite
-    Appearance.ColorDisabledTo = clNone
-    Appearance.ColorDown = 11565130
-    Appearance.ColorDownTo = 11565130
-    Appearance.ColorHot = 16444643
-    Appearance.ColorHotTo = 16444643
-    Appearance.ColorMirror = clWhite
-    Appearance.ColorMirrorTo = clWhite
-    Appearance.ColorMirrorHot = 16444643
-    Appearance.ColorMirrorHotTo = 16444643
-    Appearance.ColorMirrorDown = 11565130
-    Appearance.ColorMirrorDownTo = 11565130
-    Appearance.ColorMirrorChecked = 13744549
-    Appearance.ColorMirrorCheckedTo = 13744549
-    Appearance.ColorMirrorDisabled = clWhite
-    Appearance.ColorMirrorDisabledTo = clNone
-    Appearance.GradientHot = ggVertical
-    Appearance.GradientMirrorHot = ggVertical
-    Appearance.GradientDown = ggVertical
-    Appearance.GradientMirrorDown = ggVertical
-    Appearance.GradientChecked = ggVertical
-    Appearance.TextColorChecked = 3750459
-    Appearance.TextColorDown = 2303013
-    Appearance.TextColorHot = 2303013
-    Appearance.TextColorDisabled = 13948116
   end
-  object cbShowPassword: TAdvOfficeCheckBox
-    Left = 104
-    Top = 89
-    Width = 304
-    Height = 30
-    Anchors = [akLeft, akTop, akRight]
-    TabOrder = 4
-    OnClick = cbPasswordClick
-    Alignment = taLeftJustify
-    Caption = 'Show password'
-    ReturnIsTab = False
-    Version = '1.7.0.3'
-  end
-  object SVGCollection: TAdvSVGImageCollection
+  object AdvSVGImageCollection1: TAdvSVGImageCollection
     Images = <
       item
         Data.Data = {
@@ -323,10 +207,10 @@ object FrmSettings: TFrmSettings
           0A3C2F673E0D0A3C2F7376673E0D0A}
         Name = 'ok'
       end>
-    Left = 80
-    Top = 144
+    Left = 32
+    Top = 104
   end
-  object VImgList: TVirtualImageList
+  object VirtualImageList1: TVirtualImageList
     DisabledGrayscale = False
     DisabledSuffix = '_Disabled'
     Images = <
@@ -342,22 +226,10 @@ object FrmSettings: TFrmSettings
         Disabled = False
         Name = 'ok'
       end>
-    ImageCollection = SVGCollection
+    ImageCollection = AdvSVGImageCollection1
     Width = 24
     Height = 24
-    Left = 144
-    Top = 144
-  end
-  object AES: TAESEncryption
-    Version = '4.2.2.0'
-    keyLength = kl256
-    AType = atECB
-    Left = 24
-    Top = 80
-  end
-  object Styler: TAdvFormStyler
-    AppColor = 14851584
-    Left = 8
-    Top = 152
+    Left = 112
+    Top = 104
   end
 end

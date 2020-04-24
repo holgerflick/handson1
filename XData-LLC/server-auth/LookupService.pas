@@ -17,6 +17,9 @@ type
 
     [HttpGet]
     function GetBusinessEntityNames( const AStart: String): TList<TBusinessEntityItem>;
+
+    [HttpGet]
+    function GetServerTimeUTC: TDateTime;
   end;
 
 implementation

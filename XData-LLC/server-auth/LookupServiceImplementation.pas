@@ -20,6 +20,7 @@ type
   public
     function GetBusinessEntityNames( const AStart: string): TList<TBusinessEntityItem>;
     function GetStatus : TStatusItem;
+    function GetServerTimeUTC: TDateTime;
   end;
 
 implementation
@@ -28,15 +29,21 @@ implementation
 { TLookupService }
 
  uses
+  System.SysUtils,
+  System.DateUtils,
   XData.Sys.Exceptions,
   Flexcel.Core,
   Controller.ServiceHelper;
 
 resourcestring
- SQL_GetBusinessEntityNames = 'SELECT ID, NAME FROM companies WHERE name LIKE :name ORDER BY CONVERT(RIGHT(FILE_DATE,4), UNSIGNED) DESC LIMIT :limit';
+ SQL_GetBusinessEntityNames =
+   'SELECT ID, NAME FROM companies WHERE name ' +
+   'LIKE :name LIMIT :limit';
+
+  // ORDER BY CONVERT(RIGHT(FILE_DATE,4), UNSIGNED) DESC ';
 
 const
-  SQL_RESULT_LIMIT = 25;
+  SQL_RESULT_LIMIT = 50;
 
 function TLookupService.GetBusinessEntityNames(
   const AStart: string): TList<TBusinessEntityItem>;
@@ -71,6 +78,14 @@ begin
   finally
     LQuery.Free;
   end;
+end;
+
+function TLookupService.GetServerTimeUTC: TDateTime;
+var
+  LLocal: TTimeZone;
+begin
+  LLocal := TTimeZone.Local;
+  Result := LLocal.ToUniversalTime(Now);
 end;
 
 function TLookupService.GetStatus: TStatusItem;

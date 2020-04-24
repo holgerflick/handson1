@@ -36,7 +36,7 @@ object FrmMain: TFrmMain
     Height = 26
     Caption = 'Lookup'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = 4474440
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Droid Sans Mono'
     Font.Style = []
@@ -92,7 +92,7 @@ object FrmMain: TFrmMain
     Anchors = [akTop, akRight]
     Caption = 'Settings...'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = 4474440
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Droid Sans Mono'
     Font.Style = []
@@ -145,13 +145,13 @@ object FrmMain: TFrmMain
     Top = 8
     Width = 193
     Height = 27
-    EditType = etValidChars
+    EditType = etUppercase
     EmptyTextStyle = []
     FlatLineColor = 11250603
-    FocusColor = clWhite
+    FocusColor = clWindow
     FocusFontColor = 3881787
     LabelFont.Charset = DEFAULT_CHARSET
-    LabelFont.Color = 4474440
+    LabelFont.Color = clWindowText
     LabelFont.Height = -11
     LabelFont.Name = 'Tahoma'
     LabelFont.Style = []
@@ -161,7 +161,7 @@ object FrmMain: TFrmMain
     Lookup.Font.Name = 'Arial'
     Lookup.Font.Style = []
     Lookup.Separator = ';'
-    Color = clWhite
+    Color = clWindow
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 4474440
     Font.Height = -16
@@ -171,16 +171,15 @@ object FrmMain: TFrmMain
     ParentFont = False
     TabOrder = 3
     Text = 'L13000088029'
-    ValidChars = 'L0123456789'
     Visible = True
-    Version = '3.5.3.3'
+    Version = '3.5.3.5'
     UIStyle = tsOffice2019White
   end
   object FormStyler: TAdvFormStyler
     AppColor = 14851584
     Style = tsOffice2019White
     AppStyle = AppStyler
-    Left = 48
+    Left = 56
     Top = 336
   end
   object AppStyler: TAdvAppStyler

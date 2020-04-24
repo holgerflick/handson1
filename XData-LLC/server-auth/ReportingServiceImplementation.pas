@@ -29,10 +29,9 @@ type
   [ServiceImplementation]
   TReportingService = class(TInterfacedObject, IReportingService)
   private
-    procedure CheckCreds(AToken: String);
 
   public
-    function GetCompanyProfile( T: String; AId: String ): TStream;
+    function GetCompanyProfile( AId: String ): TStream;
   end;
 
 implementation
@@ -50,7 +49,7 @@ const
   SQL_GETCOMPANY = 'SELECT * FROM companies WHERE ID = :ID';
 
 
-function TReportingService.GetCompanyProfile(T: String; AId: String): TStream;
+function TReportingService.GetCompanyProfile(AId: String): TStream;
 var
   LQuery: TFDQuery;
   LReport: TFlexcelReport;
@@ -65,7 +64,7 @@ var
   LSigner: TCmsSigner;
 
 begin
-  CheckCreds(T);
+  TServiceHelper.CheckAuthenticated;
 
   LQuery := TFDQuery.Create(nil);
 
@@ -149,19 +148,6 @@ begin
     LResource.Free;
     LXlsStream.Free;
     LPdf.Free;
-  end;
-end;
-
-
-procedure TReportingService.CheckCreds(AToken:String);
-var
-  LId : Integer;
-begin
-  LId := AuthController.ValidateToken(AToken);
-
-  if LId < 0 then
-  begin
-    raise EXDataHttpUnauthorized.Create('Please login.');
   end;
 end;
 

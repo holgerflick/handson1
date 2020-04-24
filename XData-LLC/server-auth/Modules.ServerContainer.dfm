@@ -16,15 +16,17 @@ object ServerContainer: TServerContainer
       item
         EntitySetName = 'users'
         Permissions = [List, Get, Insert, Modify, Delete]
+      end
+      item
+        EntitySetName = 'companies'
+        Permissions = [List, Get]
       end>
+    OnEntityGet = XDataServerEntityGet
+    OnEntityList = XDataServerEntityList
     Left = 216
     Top = 16
-    object BasicAuth: TSparkleBasicAuthMiddleware
-      Realm = 'TMS Sparkle Server'
-      OnAuthenticate = BasicAuthAuthenticate
-    end
-    object XDataServerCORS: TSparkleCorsMiddleware
-      Origin = '*'
+    object TokenAuth: TSparkleGenericMiddleware
+      OnRequest = TokenAuthRequest
     end
   end
   object Pool: TXDataConnectionPool

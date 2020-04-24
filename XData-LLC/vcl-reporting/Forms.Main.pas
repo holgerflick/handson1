@@ -49,7 +49,7 @@ begin
   if TokenValid then
   begin
     Browser.URL :=
-      Format( WSROOT + '/ReportingService/GetCompanyProfile?T=%s&AId=%s', [ FToken, txtID.Text ])
+      Format( WSROOT + '/ReportingService/GetCompanyProfile?AId=%s&T=%s', [  txtID.Text, FToken ])
   end;
 end;
 
