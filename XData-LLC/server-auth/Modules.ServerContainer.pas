@@ -26,6 +26,9 @@ type
     procedure XDataServerEntityList(Sender: TObject; Args: TEntityListArgs);
     procedure XDataServerEntityGet(Sender: TObject; Args: TEntityGetArgs);
     procedure TokenAuthRequest(Sender: TObject; Context: THttpServerContext; Next: THttpServerProc);
+    procedure XDataServerEntityDeleting(Sender: TObject; Args: TEntityDeletingArgs);
+    procedure XDataServerEntityInserting(Sender: TObject; Args: TEntityInsertingArgs);
+    procedure XDataServerEntityModifying(Sender: TObject; Args: TEntityModifyingArgs);
   private
     procedure RegisterFunctions;
 
@@ -133,7 +136,17 @@ begin
   end;
 end;
 
+procedure TServerContainer.XDataServerEntityDeleting(Sender: TObject; Args: TEntityDeletingArgs);
+begin
+  TServiceHelper.CheckAuthenticated;
+end;
+
 procedure TServerContainer.XDataServerEntityGet(Sender: TObject; Args: TEntityGetArgs);
+begin
+  TServiceHelper.CheckAuthenticated;
+end;
+
+procedure TServerContainer.XDataServerEntityInserting(Sender: TObject; Args: TEntityInsertingArgs);
 begin
   TServiceHelper.CheckAuthenticated;
 end;
@@ -143,7 +156,9 @@ begin
   TServiceHelper.CheckAuthenticated;
 end;
 
-
-
+procedure TServerContainer.XDataServerEntityModifying(Sender: TObject; Args: TEntityModifyingArgs);
+begin
+  TServiceHelper.CheckAuthenticated;
+end;
 
 end.

@@ -5,7 +5,7 @@ object AuthController: TAuthController
   object Connection: TFDConnection
     Params.Strings = (
       'Database=floridallc'
-      'Server=192.168.0.134'
+      'Server=192.168.162.130'
       'User_Name=sysdba'
       'Password=masterkey'
       'DriverID=MySQL')

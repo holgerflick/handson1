@@ -1,11 +1,11 @@
 object Resources: TResources
   OldCreateOrder = False
-  Height = 232
-  Width = 293
+  Height = 183
+  Width = 347
   object AppStyler: TAdvAppStyler
     AutoThemeAdapt = True
     Style = tsOffice2019White
-    Left = 208
+    Left = 224
     Top = 48
   end
   object ToolbarList: TVirtualImageList
@@ -703,7 +703,7 @@ object Resources: TResources
           222F3E3C2F673E3C2F673E3C2F673E3C2F673E3C2F673E3C2F7376673E}
         Name = 'exit'
       end>
-    Left = 128
+    Left = 136
     Top = 48
   end
   object ButtonsCollection: TAdvSVGImageCollection
@@ -804,7 +804,7 @@ object Resources: TResources
           0A3C2F673E0D0A3C2F7376673E0D0A}
         Name = 'ok'
       end>
-    Left = 128
+    Left = 136
     Top = 104
   end
   object ButtonsList: TVirtualImageList

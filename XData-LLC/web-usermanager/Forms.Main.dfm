@@ -59,7 +59,7 @@ object Form1: TForm1
     Top = 397
     Width = 153
     Height = 25
-    Caption = 'Connect...'
+    Caption = 'Connect'
     ChildOrder = 1
     OnClick = btnConnectClick
   end

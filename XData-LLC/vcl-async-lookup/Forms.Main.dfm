@@ -2,8 +2,8 @@ object FrmMain: TFrmMain
   Left = 0
   Top = 0
   Caption = 'Report viewer with Lookup'
-  ClientHeight = 290
-  ClientWidth = 857
+  ClientHeight = 448
+  ClientWidth = 770
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,9 +16,9 @@ object FrmMain: TFrmMain
   PixelsPerInch = 96
   TextHeight = 19
   object Splitter: TAdvSplitter
-    Left = 410
+    Left = 270
     Top = 55
-    Height = 235
+    Height = 393
     OnMoved = SplitterMoved
     Appearance.BorderColor = clNone
     Appearance.BorderColorHot = clNone
@@ -33,22 +33,20 @@ object FrmMain: TFrmMain
     ExplicitHeight = 100
   end
   object Browser: TAdvWebBrowser
-    Left = 413
+    Left = 273
     Top = 55
-    Width = 444
-    Height = 235
+    Width = 497
+    Height = 393
     Align = alClient
     ParentDoubleBuffered = False
     DoubleBuffered = True
     TabOrder = 0
-    ExplicitTop = 51
-    ExplicitHeight = 239
   end
   object gridCompanies: TAdvStringGrid
     Left = 0
     Top = 55
-    Width = 410
-    Height = 235
+    Width = 270
+    Height = 393
     Cursor = crDefault
     Align = alLeft
     ColCount = 2
@@ -67,22 +65,21 @@ object FrmMain: TFrmMain
     ActiveCellFont.Height = -11
     ActiveCellFont.Name = 'Tahoma'
     ActiveCellFont.Style = [fsBold]
-    ActiveCellColor = 16760320
-    ActiveCellColorTo = 16760320
+    ActiveCellColor = 11565130
+    ActiveCellColorTo = 11565130
     BorderColor = 11250603
     ControlLook.FixedGradientFrom = clWhite
     ControlLook.FixedGradientTo = clWhite
     ControlLook.FixedGradientMirrorFrom = clWhite
     ControlLook.FixedGradientMirrorTo = clWhite
-    ControlLook.FixedGradientHoverFrom = 16776448
-    ControlLook.FixedGradientHoverTo = 16776448
-    ControlLook.FixedGradientHoverMirrorFrom = 16776448
-    ControlLook.FixedGradientHoverMirrorTo = 16776448
+    ControlLook.FixedGradientHoverTo = clWhite
+    ControlLook.FixedGradientHoverMirrorFrom = clWhite
+    ControlLook.FixedGradientHoverMirrorTo = clWhite
     ControlLook.FixedGradientHoverBorder = 11645361
-    ControlLook.FixedGradientDownFrom = 16760320
-    ControlLook.FixedGradientDownTo = 16760320
-    ControlLook.FixedGradientDownMirrorFrom = 16760320
-    ControlLook.FixedGradientDownMirrorTo = 16760320
+    ControlLook.FixedGradientDownFrom = clWhite
+    ControlLook.FixedGradientDownTo = clWhite
+    ControlLook.FixedGradientDownMirrorFrom = clWhite
+    ControlLook.FixedGradientDownMirrorTo = clWhite
     ControlLook.FixedGradientDownBorder = 11250603
     ControlLook.DropDownHeader.Font.Charset = DEFAULT_CHARSET
     ControlLook.DropDownHeader.Font.Color = clWindowText
@@ -167,7 +164,8 @@ object FrmMain: TFrmMain
     SearchFooter.HintHighlight = 'Highlight occurrences'
     SearchFooter.MatchCaseCaption = 'Match case'
     SearchFooter.ResultFormat = '(%d of %d)'
-    SelectionColor = 16772352
+    SelectionColor = 13744549
+    ShowDesignHelper = False
     SortSettings.DefaultFormat = ssAutomatic
     SortSettings.HeaderColor = clWhite
     SortSettings.HeaderColorTo = clWhite
@@ -175,16 +173,14 @@ object FrmMain: TFrmMain
     SortSettings.HeaderMirrorColorTo = clWhite
     UIStyle = tsOffice2019White
     Version = '8.5.2.2'
-    ExplicitTop = 51
-    ExplicitHeight = 239
     ColWidths = (
       143
       254)
   end
-  object AdvDockPanel1: TAdvDockPanel
+  object DockPanel: TAdvDockPanel
     Left = 0
     Top = 0
-    Width = 857
+    Width = 770
     Height = 55
     MinimumSize = 3
     LockHeight = False
@@ -195,7 +191,7 @@ object FrmMain: TFrmMain
     object AdvToolBar1: TAdvToolBar
       Left = 3
       Top = 1
-      Width = 522
+      Width = 262
       Height = 40
       UIStyle = tsOffice2019White
       AllowFloating = False
@@ -209,21 +205,22 @@ object FrmMain: TFrmMain
       ShowRightHandle = False
       ShowClose = False
       ShowOptionIndicator = False
+      FullSize = True
       TextAutoOptionMenu = 'Add or Remove Buttons'
       TextOptionMenu = 'Options'
       ParentOptionPicture = True
       ToolBarIndex = -1
       object AdvToolBarSeparator1: TAdvToolBarSeparator
-        Left = 436
+        Left = 161
         Top = 2
-        Width = 10
+        Width = 25
         Height = 0
         LineColor = clBtnShadow
       end
       object txtName: TAdvEdit
         Left = 9
         Top = 2
-        Width = 427
+        Width = 152
         Height = 27
         EmptyTextStyle = []
         FlatLineColor = 11250603
@@ -254,8 +251,8 @@ object FrmMain: TFrmMain
         Version = '3.5.3.5'
         UIStyle = tsOffice2019White
       end
-      object AdvGlowButton1: TAdvGlowButton
-        Left = 446
+      object btnSettings: TAdvGlowButton
+        Left = 186
         Top = 2
         Width = 36
         Height = 36
@@ -269,7 +266,7 @@ object FrmMain: TFrmMain
         NotesFont.Style = []
         Rounded = False
         TabOrder = 0
-        OnClick = AdvGlowButton1Click
+        OnClick = btnSettingsClick
         Appearance.BorderColor = 11382963
         Appearance.BorderColorHot = 11565130
         Appearance.BorderColorCheckedHot = 11565130
@@ -306,7 +303,7 @@ object FrmMain: TFrmMain
         UIStyle = tsOffice2019White
       end
       object btnExit: TAdvGlowButton
-        Left = 482
+        Left = 222
         Top = 2
         Width = 36
         Height = 36
@@ -362,7 +359,7 @@ object FrmMain: TFrmMain
     AppColor = 14851584
     Style = tsOffice2019White
     AppStyle = Resources.AppStyler
-    Left = 456
-    Top = 88
+    Left = 408
+    Top = 128
   end
 end

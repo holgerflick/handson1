@@ -14,10 +14,10 @@ type
   TFrmMain = class(TForm)
     Browser: TAdvWebBrowser;
     gridCompanies: TAdvStringGrid;
-    AdvDockPanel1: TAdvDockPanel;
+    DockPanel: TAdvDockPanel;
     AdvToolBar1: TAdvToolBar;
     txtName: TAdvEdit;
-    AdvGlowButton1: TAdvGlowButton;
+    btnSettings: TAdvGlowButton;
     AdvToolBarSeparator1: TAdvToolBarSeparator;
     Splitter: TAdvSplitter;
     FormStyler: TAdvFormStyler;
@@ -25,7 +25,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure txtNameChange(Sender: TObject);
     procedure gridCompaniesDblClickCell(Sender: TObject; ARow, ACol: Integer);
-    procedure AdvGlowButton1Click(Sender: TObject);
+    procedure btnSettingsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure SplitterMoved(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
@@ -66,7 +66,7 @@ const
   WSROOT = 'http://localhost/flix';
 
 
-procedure TFrmMain.AdvGlowButton1Click(Sender: TObject);
+procedure TFrmMain.btnSettingsClick(Sender: TObject);
 begin
   ShowSettings;
 end;

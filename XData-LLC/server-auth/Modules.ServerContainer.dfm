@@ -21,6 +21,9 @@ object ServerContainer: TServerContainer
         EntitySetName = 'companies'
         Permissions = [List, Get]
       end>
+    OnEntityInserting = XDataServerEntityInserting
+    OnEntityModifying = XDataServerEntityModifying
+    OnEntityDeleting = XDataServerEntityDeleting
     OnEntityGet = XDataServerEntityGet
     OnEntityList = XDataServerEntityList
     Left = 216
@@ -46,7 +49,7 @@ object ServerContainer: TServerContainer
       'Database=floridallc'
       'User_Name=sysdba'
       'Password=masterkey'
-      'Server=192.168.0.134'
+      'Server=192.168.162.130'
       'DriverID=MySQL')
     FetchOptions.AssignedValues = [evItems, evRowsetSize, evUnidirectional, evCursorKind]
     FetchOptions.RowsetSize = 10000
