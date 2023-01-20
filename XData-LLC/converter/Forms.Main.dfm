@@ -11,12 +11,10 @@ object FrmMain: TFrmMain
   Font.Height = -15
   Font.Name = 'Droid Sans'
   Font.Style = []
-  OldCreateOrder = False
   OnCreate = FormCreate
   DesignSize = (
     533
     90)
-  PixelsPerInch = 96
   TextHeight = 18
   object lblFilename: TLabel
     Left = 8
@@ -77,7 +75,7 @@ object FrmMain: TFrmMain
     TabOrder = 2
     Text = ''
     Visible = True
-    Version = '1.6.0.0'
+    Version = '1.7.1.3'
     ButtonStyle = bsButton
     ButtonWidth = 16
     Flat = False
@@ -523,11 +521,11 @@ object FrmMain: TFrmMain
     Options = [fdoNewDialogStyle]
     DialogX = 0
     DialogY = 0
-    Version = '1.1.4.0'
+    Version = '1.1.4.1'
     Left = 160
     Top = 40
   end
-  object FDConnection1: TFDConnection
+  object Connection: TFDConnection
     Params.Strings = (
       'Database=floridallc'
       'User_Name=sysdba'
@@ -535,6 +533,6 @@ object FrmMain: TFrmMain
       'Server=192.168.0.134'
       'DriverID=MySQL')
     Left = 264
-    Top = 48
+    Top = 40
   end
 end

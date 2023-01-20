@@ -103,7 +103,7 @@ type
     lblFilename: TLabel;
     dlgSelectFolder: TFolderDialog;
     txtFolder: TAdvEditBtn;
-    FDConnection1: TFDConnection;
+    Connection: TFDConnection;
     procedure btnConvertClick(Sender: TObject);
     procedure txtFolderClickBtn(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -236,7 +236,6 @@ begin
           begin
             LBuffer := LBuffer.Replace('  ', ' ', [ ] );
           end;
-
 
           if i > 0 then
           begin
