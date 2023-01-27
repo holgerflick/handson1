@@ -205,6 +205,22 @@ begin
     // restart reader
     LReader.Rewind;
 
+    // write header with column names
+    LLine := '';
+    for LField in quCompanies.Fields  do
+    begin
+      if LLine <> '' then
+      begin
+        LLine := LLine + #9;
+      end;
+
+      LLine := LLine + LField.Name;
+    end;
+
+
+    // not needed for LOAD DATA LOCAL INFILE
+    // LWriter.WriteLine( LLine );
+
     // iterate all records
     while not LReader.EndOfStream do
     begin
